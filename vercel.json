@@ -10,7 +10,7 @@
 
     "routes": [
         {
-            "src": "/assets/.*",  // Путь к JS/CSS
+            "src": "/assets/.*",
             "headers": { "Content-Type": "text/javascript" }
         },
         {
