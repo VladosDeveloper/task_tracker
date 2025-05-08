@@ -1,0 +1,14 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+    background-color: rgba(142, 142, 241, 0.2);
+    min-height: 100vh;
+}
+
+.circularProgressContainer {
+  position: fixed;
+  top: 30%;
+  text-align: center;
+  width: 100%;
+}
