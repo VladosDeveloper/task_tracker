@@ -7,7 +7,12 @@
             "use": "@vercel/static"
         }
     ],
+
     "routes": [
+        {
+            "src": "/assets/.*",  // Путь к JS/CSS
+            "headers": { "Content-Type": "text/javascript" }
+        },
         {
             "src": "/(.*)",
             "dest": "/dist/index.html"
