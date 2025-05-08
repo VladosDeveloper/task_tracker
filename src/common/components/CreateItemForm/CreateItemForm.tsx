@@ -33,7 +33,10 @@ export const CreateItemForm = ({ onCreateItem, disabled,placeHolderText }: Props
       createItemHandler()
     }
   }
-
+  // TODO: поменять заголовок в шапке и иконку
+  // TODO: Убрать ошибку при входе "Not authorized"
+  // TODO: добавить адаптив под мобилки
+  // TODO: Редирект на главную, а не 404
   return (
     <div>
       <TextField
