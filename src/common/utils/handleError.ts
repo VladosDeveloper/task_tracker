@@ -8,7 +8,7 @@ export const handleError = (
   result: QueryReturnValue<unknown, FetchBaseQueryError, FetchBaseQueryMeta>,
 ) => {
   let error = "Some error occurred"
-
+  
   if (result.error) {
     switch (result.error.status) {
       case "FETCH_ERROR":
@@ -33,7 +33,7 @@ export const handleError = (
     }
     api.dispatch(setAppErrorAC({ error }))
   }
-  // TODO: добавить проверку на резалт код 10 и если он есть, то делать запрос за captcha
+  
   const clientError = (result.data as { resultCode: ResultCode }).resultCode
 
   if (clientError === ResultCode.Error || clientError === ResultCode.CaptchaError) {

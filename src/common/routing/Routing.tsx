@@ -3,11 +3,11 @@ import { Main } from "@/app/Main"
 import { PageNotFound, ProtectedRoute } from "@/common/components"
 import { useAppSelector } from "@/common/hooks"
 import { Login } from "@/features/auth/ui/Login/Login"
-import { Route, Routes } from "react-router"
+import { Navigate, Route, Routes } from "react-router"
 
 export const Path = {
-  Main: "/",
-  Login: "login",
+  Main: "/task_tracker",
+  Login: "/login",
   NotFound: "*",
 } as const
 
@@ -18,6 +18,7 @@ export const Routing = () => {
     <Routes>
       <Route element={<ProtectedRoute isAllowed={isLoggedIn} redirectPath={Path.Login} />}>
         <Route path={Path.Main} element={<Main />} />
+        <Route path='/' element={<Navigate to={Path.Main}/>}/>
       </Route>
       <Route element={<ProtectedRoute isAllowed={!isLoggedIn} />}>
         <Route path={Path.Login} element={<Login />} />
