@@ -49,12 +49,11 @@ export const Header = () => {
   const status = useAppSelector(selectAppStatus)
   const breakPoint = useMediaQuery("(max-width: 768px)", false)
 
-  const isMobileScreen = containerSx(!breakPoint)
 
   return (
     <AppBar position="static" sx={{ mb: "30px" }}>
       <Toolbar>
-        <Container maxWidth={"lg"} sx={isMobileScreen}>
+        <Container maxWidth={"lg"} sx={containerSx}>
           <IconButton color="inherit">
             <MenuIcon />
           </IconButton>
