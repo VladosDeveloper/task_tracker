@@ -4,15 +4,12 @@
     "builds": [
         {
             "src": "dist/**",
-            "use": "@vercel/static"
+            "use": "@vercel/node"
         }
     ],
 
     "routes": [
-        {
-            "src": "/assets/*",
-            "headers": { "Content-Type": "text/javascript" }
-        },
+
         {
             "src": "/(.*)",
             "dest": "/dist/index.html"
