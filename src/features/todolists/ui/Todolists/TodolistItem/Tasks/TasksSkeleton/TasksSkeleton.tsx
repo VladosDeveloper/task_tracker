@@ -7,7 +7,7 @@ export const TasksSkeleton = () => (
     {Array(4)
       .fill(null)
       .map((_, id) => (
-        <Box key={id} sx={containerSx}>
+        <Box key={id} sx={containerSx} >
           <Box sx={containerSx} style={{ gap: "15px" }}>
             <Skeleton width={20} height={40} />
             <Skeleton width={150} height={40} />

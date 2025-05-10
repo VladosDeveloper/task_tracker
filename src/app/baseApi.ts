@@ -15,7 +15,6 @@ export const baseApi = createApi({
         headers.set("Authorization", `Bearer ${localStorage.getItem(AUTH_TOKEN)}`)
       },
     })(args, api, extraOptions)
-
     
     if (api.endpoint === 'me') return result
     handleError(api, result)

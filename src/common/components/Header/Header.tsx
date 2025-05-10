@@ -6,15 +6,10 @@ import {
   setIsLoggedInAC,
 } from "@/app/app-slice.ts"
 import { useAppDispatch, useAppSelector } from "@/common/hooks"
-import { containerSx } from "@/common/styles"
-import MenuIcon from "@mui/icons-material/Menu"
 import AppBar from "@mui/material/AppBar"
 import Container from "@mui/material/Container"
-import IconButton from "@mui/material/IconButton"
 import LinearProgress from "@mui/material/LinearProgress"
 import Toolbar from "@mui/material/Toolbar"
-import { useMediaQuery } from "react-haiku"
-import { ResponsiveNavigation } from "@/common/components/Header/ResponsiveNavigation.tsx"
 import { useLogoutMutation } from "@/features/auth/api/authApi.ts"
 import { ResultCode } from "@/common/enums"
 import { AUTH_TOKEN } from "@/common/constants"
@@ -47,24 +42,15 @@ export const Header = () => {
   }
 
   const status = useAppSelector(selectAppStatus)
-  const breakPoint = useMediaQuery("(max-width: 768px)", false)
-
 
   return (
     <AppBar position="static" sx={{ mb: "30px" }}>
       <Toolbar>
-        <Container maxWidth={"lg"} sx={containerSx}>
-          <IconButton color="inherit">
-            <MenuIcon />
-          </IconButton>
-          {!breakPoint ? (
-            <div>
-              {isLoggedIn && <NavButton onClick={logoutHandler}>Sign out</NavButton>}
-              <Switch color={"default"} onChange={changeMode} />
-            </div>
-          ) : (
-            <ResponsiveNavigation />
-          )}
+        <Container maxWidth={"lg"} sx={{ display: "flex", justifyContent: "flex-end" }}>
+          <div>
+            {isLoggedIn && <NavButton onClick={logoutHandler}>Sign out</NavButton>}
+            <Switch color={"default"} onChange={changeMode} />
+          </div>
         </Container>
       </Toolbar>
       {status === "loading" && <LinearProgress />}
